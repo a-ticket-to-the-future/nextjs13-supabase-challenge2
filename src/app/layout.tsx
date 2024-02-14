@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/app/components/navigation/Navigation'
+import AuthContext from './context/AuthContext'
+import getCurrentUser from './actions/getCurrentUser'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,17 +12,20 @@ export const metadata: Metadata = {
   description: 'Prisma Auth',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+  const currentUser = await getCurrentUser()
+
   return (
     <html >
       <body className={inter.className}>
-        <div>
+        <AuthContext>
           <div className='flex min-h-screen flex-col '>
-            <Navigation />
+            <Navigation currentUser={currentUser} />
 
             <main className='container mx-auto max-w-screen-sm flex-1 px-1 py-5'>{children}</main>
 
@@ -30,7 +35,7 @@ export default function RootLayout({
               </div>
             </footer>
           </div>
-        </div>
+        </AuthContext>
       </body>
     </html>
   )
