@@ -33,7 +33,7 @@ const Input: React.FC<InputProps> = ({
             disabled={disabled}
             {...register(id,{required})}
             placeholder=''
-            type='type'
+            type={type}
             className={` w-full rounded-lg border-2 p-4 outline-none transition disabled:cursor-not-allowed disabled:opacity-70 
             ${
                 errors[id]
