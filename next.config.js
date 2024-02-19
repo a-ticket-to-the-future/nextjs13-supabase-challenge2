@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 
-    experimetal: {
+    experimental: {
         serverActions: true,
     },
     images: {
