@@ -27,7 +27,7 @@ export async function PATCH(request:Request) {
             data: {
                 name,
                 image,
-            }
+            },
         })
 
         return NextResponse.json(response);

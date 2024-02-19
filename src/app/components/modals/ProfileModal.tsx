@@ -58,7 +58,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ currentUser }) => {
     const image = watch('image')
 
     //　カスタム値の設定
-    const setCustomValue = (id:string, value: string) => {
+    const setCustomValue = (id: string, value: string) => {
         setValue(id, value,{
             shouldDirty: true,
             shouldTouch: true,
@@ -96,7 +96,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ currentUser }) => {
     },[step])
 
     //　サブボタンのラベル
-    const secondariyLabel = useMemo(() => {
+    const secondaryLabel = useMemo(() => {
         if(step === STEPS.CONTENT){
             return undefined
         }
@@ -165,9 +165,9 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ currentUser }) => {
         disabled={loading}
         isOpen={profileModal.isOpen}
         title='プロフィール'
-        primaryLabel='primaryLabel'
+        primaryLabel={primaryLabel}
         onSubmit={handleSubmit(onSubmit)}
-        secondaryLabel={secondariyLabel}
+        secondaryLabel={secondaryLabel}
         secondaryAction={step === STEPS.CONTENT ? undefined : onBack}
         onClose={() => {
             profileModal.onClose()
