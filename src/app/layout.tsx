@@ -42,7 +42,7 @@ export default async function RootLayout({
 
             <footer className='py-5'>
               <div className='text-center text-sm'>
-                nextjs13-supabase-challenge2
+                nextjs13-supabase-challenge2?
               </div>
             </footer>
           </div>
