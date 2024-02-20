@@ -8,6 +8,8 @@ import SignUpModal from '@/app/components/modals/SignUpModal'
 import ToasterContext from './context/ToasterContext'
 import LoginModal from '@/app/components/modals/LoginModal'
 import ProfileModal from '@/app/components/modals/ProfileModal'
+import ModalProvider from './components/subscription/ModalProvider'
+import checkSubscription from './actions/checkSubscription'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +26,9 @@ export default async function RootLayout({
 
   const currentUser = await getCurrentUser()
 
+  //　サブスクリプション有効チェック
+  const isSubscription = await checkSubscription({ userId: session?.user.id})
+
   return (
     <html >
       <body className={inter.className}>
@@ -36,7 +41,8 @@ export default async function RootLayout({
             <ProfileModal currentUser={currentUser} />
 
           <div className='flex min-h-screen flex-col '>
-            <Navigation currentUser={currentUser} />
+            <Navigation currentUser={currentUser} isSubscription={isSubscription} />
+            <ModalProvider />
 
             <main className='container mx-auto max-w-screen-sm flex-1 px-1 py-5'>{children}</main>
 

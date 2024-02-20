@@ -44,4 +44,11 @@ model Account {
 }
 
 
-
+model Subscription {
+  id                String    @id @default(cuid())
+  userId            String    @unique
+  customerId        String?   @unique
+  subscriptionId    String?   @unique
+  priceId           String?
+  currentPeriodEnd  DateTime?
+}
