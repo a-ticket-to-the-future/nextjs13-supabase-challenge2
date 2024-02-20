@@ -8,9 +8,10 @@ import { User } from '@prisma/client'
 
 type NavigationProps = {
   currentUser : User | null
+  isSubscription: boolean
 }
 
-const Navigation: React.FC<NavigationProps> = ({ currentUser }) => {
+const Navigation: React.FC<NavigationProps> = ({ currentUser, isSubscription }) => {
   return (
     <header className=' shadow-lg shadow-gray-100'>
         <div className=' container mx-auto flex max-w-screen-sm items-center justify-between  px-1 py-5'>
