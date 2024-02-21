@@ -10,6 +10,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Session {
+  id                    String    @id @default(cuid())
+  sessionToken          String    @unique
+  userId                String
+  expires_at            DateTime
+
+  user User @relation(fields:[userId], references:[id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
 
 model User {
   id              String    @id @default(uuid())
@@ -21,6 +32,7 @@ model User {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   accounts        Account[]
+  session         Session[]
 }
 
 
@@ -42,6 +54,10 @@ model Account {
 
   @@unique([provider,providerAccountId])
 }
+
+
+
+
 
 
 model Subscription {

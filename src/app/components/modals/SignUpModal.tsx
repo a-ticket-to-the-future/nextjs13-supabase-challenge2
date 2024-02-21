@@ -12,7 +12,7 @@ import useLoginModal from '@/app/hooks/useLoginModal'
 import useSignUpModal from '@/app/hooks/useSignUpModal'
 import Modal from './Modal'
 import Input from '../input/Input'
-import Button from '../button/Button'
+import Button from '../ui/button/Button'
 import axios from 'axios'
 import * as z from 'zod'
 

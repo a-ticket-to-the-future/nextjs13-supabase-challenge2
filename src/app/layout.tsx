@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { getAuthSession } from './lib/nextauth'
+
 import Navigation from '@/app/components/navigation/Navigation'
 import AuthContext from './context/AuthContext'
 import getCurrentUser from './actions/getCurrentUser'
@@ -25,6 +27,7 @@ export default async function RootLayout({
 }) {
 
   const currentUser = await getCurrentUser()
+  const session = await getAuthSession()
 
   //　サブスクリプション有効チェック
   const isSubscription = await checkSubscription({ userId: session?.user.id})
@@ -41,7 +44,7 @@ export default async function RootLayout({
             <ProfileModal currentUser={currentUser} />
 
           <div className='flex min-h-screen flex-col '>
-            <Navigation currentUser={currentUser} isSubscription={isSubscription} />
+            <Navigation session={session} currentUser={currentUser} isSubscription={isSubscription} />
             <ModalProvider />
 
             <main className='container mx-auto max-w-screen-sm flex-1 px-1 py-5'>{children}</main>
