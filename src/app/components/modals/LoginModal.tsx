@@ -12,7 +12,7 @@ import useSignUpModal from '@/app/hooks/useSignUpModal'
 import useLoginModal from '@/app/hooks/useLoginModal'
 import Modal from './Modal'
 import Input from '../input/Input'
-import Button from '../button/Button'
+import Button from '../ui/button/Button'
 import * as z from 'zod'
 
 import React from 'react'

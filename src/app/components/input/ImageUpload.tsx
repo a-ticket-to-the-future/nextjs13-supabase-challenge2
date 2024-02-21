@@ -14,12 +14,15 @@ declare global {
 type ImageUploadProps = {
     onChange: (value: string) => void
     value: string
+
 }
 
 type UploadResult = {
     info: {
         secure_url: string
+        
     }
+
 }
 
 
