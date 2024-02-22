@@ -37,3 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # nextjs13-supabase-challenge2
 # nextjs13-supabase-auth-stripe-challenge
 # nextjs13-supabase-auth-stripe-challenge
+# nextjs13-supabase-auth-stripe-challenge
