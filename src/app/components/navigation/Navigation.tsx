@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Menu from '@/app/components/navigation/Menu'
 
+
 import { User } from '@prisma/client'
 import { Button } from '../ui/button/Button'
 import UserNavigation from '../auth/UserNavigation'
@@ -36,14 +37,14 @@ const Navigation: React.FC<NavigationProps> = ({ currentUser, isSubscription, se
           {session?.user ? (
             <div>
             {!isSubscription && (
-              <Button asChild variant="upgrade">
+              <Button label='' asChild variant="upgrade" outline del icon={""}  >
                 <Link href="/checkout">アップグレード</Link>
               </Button>
             )}
             <UserNavigation user={session.user} />
             </div>
           ) : (
-            <Button>
+            <Button label='' asChild  outline del icon={""}>
               <Link href="/login">ログイン</Link>
             </Button>
             )}

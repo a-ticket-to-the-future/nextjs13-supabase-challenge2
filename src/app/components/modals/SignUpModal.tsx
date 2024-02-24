@@ -12,7 +12,7 @@ import useLoginModal from '@/app/hooks/useLoginModal'
 import useSignUpModal from '@/app/hooks/useSignUpModal'
 import Modal from './Modal'
 import Input from '../input/Input'
-import Button from '../ui/button/Button'
+import {Button} from '../ui/button/Button'
 import axios from 'axios'
 import * as z from 'zod'
 
@@ -117,7 +117,7 @@ const SignUpModal = () => {
         <div className='mt-3 flex flex-col gap-4'>
             <hr />
             {/* Googleログイン */}
-            <Button outline label='Googleでログイン' icon={FcGoogle} onClick={() => signIn('google')} />
+            <Button outline label='Googleでログイン' icon={FcGoogle} onClick={() => signIn('google')} del asChild />
 
         {/* ログインリンク */}
         <div className='mt-4 text-center'>
