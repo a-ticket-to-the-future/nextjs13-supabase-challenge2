@@ -14,6 +14,7 @@ declare global {
 type ImageUploadProps = {
     onChange: (value: string) => void
     value: string
+    onUpload?: (handleUpload: string) => void
 
 }
 
@@ -38,7 +39,7 @@ type UploadResult = {
 //　画像アップロード
 
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value}) => {
+const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value,onUpload}) => {
 
     const handleUpload = useCallback((result: UploadResult) => {
         // if (isValidUploadResult(result)) {

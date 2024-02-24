@@ -3,7 +3,7 @@
 import { useCallback } from "react"
 import { IoMdClose } from 'react-icons/io'
 
-import Button from "../ui/button/Button"
+import {Button} from "../ui/button/Button"
 
 type ModalProps = {
     isOpen?: boolean
@@ -104,6 +104,10 @@ return (
                     label={secondaryLabel}
                     onClick={handleSecondaryAction}
                     outline
+                    del
+                    asChild
+                    icon={""}
+                  
                   />
                 )}
                 {/* メインボタン */}
@@ -111,7 +115,10 @@ return (
                   disabled={disabled}
                   label={primaryLabel}
                   onClick={handleSubmit}
-                  del={del}
+                  del
+                  outline
+                  icon={""}
+                  asChild
                 />
               </div>
 
