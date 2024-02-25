@@ -22,7 +22,32 @@ const SubscriptionModal = () => {
   const modal = useSubscriptionModal()
 
   return (
-    <div>SubscriptionModal</div>
+    <Dialog>
+      <DialogContent>
+        <DialogHeader className=' space-y-4'>
+          <DialogTitle className=' text-center'>フリープラン終了</DialogTitle>
+            <DialogDescription className=' text-center'>
+              プランをアップグレードしてください
+            </DialogDescription>
+          
+        </DialogHeader>
+        <Separator />
+        <Button 
+          asChild
+          variant='upgrade'
+          className=' w-full'
+          onClick={modal.onClose}
+          icon={""}
+          del
+          disable
+          outline
+          label=''
+
+        >
+          <Link href="/checkout">アップグレード</Link>
+        </Button>
+      </DialogContent>
+    </Dialog>
   )
 }
 
