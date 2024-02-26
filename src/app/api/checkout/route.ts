@@ -30,6 +30,28 @@ export async function POST(request:Request) {
             customerId = customer.id
         }
 
+        // チェックアウトセッション作成
+        const checkoutSession = await stripe.checkout.sessions.create({
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success`,
+            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/checkout`,
+            payment_method_types: ["card"],
+            mode:"subscription",
+            billing_address_collection:"auto",
+            customer: customerId,
+            line_items:[
+                {
+                    price: priceId,
+                    quantity:1,
+                },
+            ],
+            metadata: {
+                userId,
+            },
+        })
+
+        //　チェックアウトセッションのURLをレスポンスとして返す
+        return new NextResponse(JSON.stringify({ url: checkoutSession.url}))
+
     }catch (error:any) {
         console.log("Stripeエラー", error.message)
         return new NextResponse("Stripeでエラーが発生しました",{status:500})
