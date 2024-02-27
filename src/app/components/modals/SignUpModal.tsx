@@ -120,7 +120,7 @@ const SignUpModal = () => {
             <Button outline label='Googleでログイン' icon={FcGoogle} onClick={() => signIn('google')} del asChild />
 
         {/* ログインリンク */}
-        <div className='mt-4 text-center'>
+        <div className='mt-4 text-center border-2'>
             <div onClick={onToggle} className='cursor-pointer text-sm text-neutral-500 hover:underline'>
                 ログインする
             </div>

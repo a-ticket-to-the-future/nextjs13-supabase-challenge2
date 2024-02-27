@@ -37,7 +37,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentUser, isSubscription, se
           {session?.user ? (
             <div>
             {!isSubscription && (
-              <Button label='' asChild variant="upgrade" outline del icon={""}  >
+              <Button label='' asChild variant="upgrade" outline={false} del icon={""}  >
                 <Link href="/checkout">アップグレード</Link>
               </Button>
             )}
